@@ -38,6 +38,13 @@
     <!-- Overlay para menú móvil -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
+    <!-- Modal para ampliar imágenes -->
+    <div id="imageModal" class="image-modal" style="display: none;">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
     <!-- Main Content -->
     <main>
       <!-- Instrucciones para contribuir -->
@@ -164,8 +171,8 @@ git config --list</code></pre>
                   tu trabajo organizado y separado de la rama principal. Si te
                   das cuenta sale como (main) eso hace referencia a la rama
                   actual donde estas, es por eso que cuando creas una nueva rama
-                  en este caso se llama add-gat1t0, donde salia main ahora dice
-                  add-gat1t0 entonces con eso confirmacion el cambio de rama
+                  en este caso se llama new-profile, donde salia main ahora dice
+                  new-profile entonces con eso confirmacion el cambio de rama
                 </p>
                 <div class="step-image">
                   <img
@@ -190,9 +197,10 @@ git branch</code></pre>
                 <h3><i class="fas fa-edit"></i> Abre el Editor de Código</h3>
                 <p>
                   Abre el proyecto en tu editor favorito (VS Code, Sublime,
-                  etc.). Localiza el archivo <code>contributors-data.js</code>
-                  para poder agregar tu informacion como nombre, nickname de
-                  github, github, linkedin, descripcion y hobbies.
+                  etc.). Ahora que estás en una nueva rama, crea un archivo <code>tu-nickname.json</code> 
+                  dentro de la carpeta <code>contributors</code>. Agrega tu información: nombre, 
+                  nickname, GitHub, LinkedIn, Instagram (opcionales), imagen (puedes usar tu avatar 
+                  de GitHub agregando .png), descripción y hasta 4 hobbies.
                 </p>
                 <div class="step-image">
                   <img
@@ -204,13 +212,13 @@ git branch</code></pre>
                   <pre><code># Si usas VS Code
 code .
 
-# O abre manualmente el archivo
-# contributors-data.js</code></pre>
+Puedes encontrar el template en <code>templates/contributor-template.json</code>. Recuerda que JSON no 
+permite comentarios, así que debes quitar las líneas con <code>//</code> del template.</code></pre>
                 </div>
               </div>
             </div>
 
-            <!-- Paso 8: Verificar Cambios -->
+            <!-- Paso 7: Verificar Cambios y Subir -->
             <div class="step">
               <div class="step-number">7</div>
               <div class="step-content">
@@ -224,128 +232,168 @@ code .
                 <div class="step-image">
                   <img
                     src="../assets/guides-v1/Paso7.png"
-                    alt="Paso 8: Verificar cambios"
+                    alt="Paso 7: Verificar cambios"
                     class="guide-image" />
                 </div>
                 <div class="code-example">
                   <pre><code># Ver qué archivos han cambiado
 git status
 
-#Para juntar todos los cambios
+# Para juntar todos los cambios
 git add .
 
-#Para guardar los cambios
-git commit -m "feat/add-gat1t0"
+# Para guardar los cambios
+git commit -m "feat: add new profile for [tu-nickname]"
 
-#Para subir a tu repositorio tu rama con cambios
-git push origin feat/add-gat1t0
+# Para subir a tu repositorio tu rama con cambios
+git push origin feat/new-tu-nickname
 </code></pre>
                 </div>
               </div>
             </div>
 
-            <!-- Paso 8: Hacer Commit -->
+            <!-- Paso 8: Comparar y Pull Request -->
             <div class="step">
               <div class="step-number">8</div>
               <div class="step-content">
-                <h3>
-                  <i class="fas fa-save"></i> Iniciamos Pull Request de los
-                  Cambios
-                </h3>
+                <h3><i class="fas fa-code-branch"></i> Comparar y Pull Request</h3>
                 <p>
-                  Verificamos que se haya creado la nueva rama y que este los
-                  cambios que hicimos. Luego de verificar que todo esta
-                  correcto, le hacemos click a comparar y pull request.(Boton
-                  verde)
-                </p>
-                <div class="step-image">
-                  <img
-                    src="../assets/guides-v1/Paso8.png"
-                    alt="Paso 9: Hacer commit"
-                    class="guide-image" />
-                </div>
-              </div>
-            </div>
-
-            <!-- Paso 9: Push a tu Fork -->
-            <div class="step">
-              <div class="step-number">9</div>
-              <div class="step-content">
-                <h3>
-                  <i class="fas fa-cloud-upload-alt"></i> Abrir PR con la repo
-                  de origin
-                </h3>
-                <p>
-                  Tenemos que darle a Crear Pull Request(Boton verde) para que
-                  aparezca en el repositorio de origin y pueda ser revisada por
-                  el dueño del repositorio. Tambien puedes agregar una
-                  descripción detallada de los cambios que realizaste y por qué
-                  son importantes.
-                </p>
-                <div class="step-image">
-                  <img
-                    src="../assets/guides-v1/Paso9.png"
-                    alt="Paso 10: Push a fork"
-                    class="guide-image" />
-                </div>
-              </div>
-            </div>
-
-            <!-- Paso 10: Crear Pull Request -->
-            <div class="step">
-              <div class="step-number">10</div>
-              <div class="step-content">
-                <h3><i class="fas fa-paper-plane"></i> Pull Request Creada</h3>
-                <p>
-                  Una vez que hayas creado el Pull Request, verifica que todo
-                  este bien y que no haya errores al momento de juntar los
-                  cambios. Y esperar que aprueben tu Pull Request.
+                  Verifica que ahora tienes 2 ramas en tu repositorio. GitHub te permitirá 
+                  "Comparar y hacer Pull Request". Puedes ver que el último autor del cambio 
+                  fuiste tú. Haz clic en el botón verde "Compare & pull request".
                 </p>
                 <div class="step-image">
                   <img
                     src="../assets/guides-v1/Paso10.png"
-                    alt="Paso 11: Crear PR"
+                    alt="Paso 8: Comparar y PR"
+                    class="guide-image" />
+                </div>
+                <div class="info-box">
+                  <p>
+                    <i class="fas fa-info-circle"></i> GitHub detecta automáticamente tu nueva rama y te permite crear el PR
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 9: Crear Pull Request -->
+            <div class="step">
+              <div class="step-number">9</div>
+              <div class="step-content">
+                <h3><i class="fas fa-paper-plane"></i> Crear Pull Request</h3>
+                <p>
+                  Verifica que el Pull Request se hará entre el repositorio principal y la rama main, 
+                  mergeando los cambios de tu repo forkeado y tu nueva rama. Agrega un mensaje 
+                  descriptivo explicando tus cambios y haz clic en "Create Pull Request".
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/guides-v1/Paso11.png"
+                    alt="Paso 9: Crear PR"
                     class="guide-image" />
                 </div>
               </div>
             </div>
 
-            <!-- Paso 12: Esperar Auto-merge -->
+            <!-- Paso 9.1: Ver Cambios en Código -->
             <div class="step">
-              <div class="step-number">11</div>
+              <div class="step-number">9.1</div>
               <div class="step-content">
-                <h3><i class="fas fa-robot"></i> ¡PR Aprobada!</h3>
+                <h3><i class="fas fa-code"></i> Revisar Cambios en Código</h3>
                 <p>
-                  Si todo está correcto, el sistema automáticamente validará tu
-                  PR y lo mergeará. ¡Aparecerás en la página web en unos
-                  minutos!
+                  Puedes revisar todos los cambios realizados en código antes de finalizar 
+                  el Pull Request. Esto te permite verificar que todo esté correcto.
                 </p>
                 <div class="step-image">
                   <img
-                    src="../assets/guides-v1/Paso11.png"
-                    alt="Paso 12: Auto-merge"
+                    src="../assets/guides-v1/Paso11.1.png"
+                    alt="Paso 9.1: Ver cambios en código"
+                    class="guide-image" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 10: PR Abierta -->
+            <div class="step">
+              <div class="step-number">10</div>
+              <div class="step-content">
+                <h3><i class="fas fa-eye"></i> Pull Request Abierta</h3>
+                <p>
+                  Tu PR está ahora abierta para revisión. Las personas con roles suficientes 
+                  pueden comentar, rechazar o aprobar la PR.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/guides-v1/Paso12.png"
+                    alt="Paso 10: PR abierta"
+                    class="guide-image" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 11: Aprobación y Merge -->
+            <div class="step">
+              <div class="step-number">11</div>
+              <div class="step-content">
+                <h3><i class="fas fa-check-circle"></i> Aprobación y Merge</h3>
+                <p>
+                  Cuando no hay conflictos y todo está correcto, un revisor puede aprobar 
+                  la PR y hacer el merge. Tus cambios serán integrados al repositorio principal.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/guides-v1/Paso13.png"
+                    alt="Paso 11: Aprobación y merge"
+                    class="guide-image" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 12: Historial de Commits -->
+            <div class="step">
+              <div class="step-number">12</div>
+              <div class="step-content">
+                <h3><i class="fas fa-history"></i> Historial de Commits</h3>
+                <p>
+                  Puedes ver el historial de commits donde aparece tu commit junto con 
+                  el commit del auditor que aprobó los cambios. Tu contribución forma 
+                  parte oficial del proyecto.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/guides-v1/Paso14.png"
+                    alt="Paso 12: Historial de commits"
+                    class="guide-image" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 13: Resultado Final -->
+            <div class="step">
+              <div class="step-number">13</div>
+              <div class="step-content">
+                <h3><i class="fas fa-star"></i> ¡Felicitaciones!</h3>
+                <p>
+                  ¡Tu contribución ha sido exitosa! Ahora apareces en la página colaborativa 
+                  con tu perfil, información y enlaces. Eres oficialmente parte del proyecto.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/guides-v1/Paso15.png"
+                    alt="Paso 13: Resultado final"
                     class="guide-image" />
                 </div>
                 <div class="info-box success">
                   <h4>
-                    <i class="fas fa-magic"></i> ¿Qué pasa automáticamente?
+                    <i class="fas fa-trophy"></i> ¡Has completado tu primera contribución!
                   </h4>
                   <ul>
-                    <li>
-                      ✅ <strong>Validación:</strong> Se verifica el formato y
-                      datos
-                    </li>
-                    <li>
-                      🤖 <strong>Auto-merge:</strong> Si es válido, se mergea
-                      automáticamente
-                    </li>
-                    <li>
-                      🚀 <strong>Deploy:</strong> La página web se actualiza
-                    </li>
-                    <li>
-                      💬 <strong>Comentario:</strong> Recibes confirmación en el
-                      PR
-                    </li>
+                    <li>✅ <strong>Fork realizado</strong> correctamente</li>
+                    <li>✅ <strong>Repositorio clonado</strong> localmente</li>
+                    <li>✅ <strong>Rama nueva</strong> creada siguiendo GitFlow</li>
+                    <li>✅ <strong>Cambios</strong> realizados y commitados</li>
+                    <li>✅ <strong>Pull Request</strong> creado y aprobado</li>
+                    <li>🎉 <strong>¡Apareces en la página!</strong></li>
                   </ul>
                 </div>
               </div>
@@ -508,5 +556,56 @@ git push origin feat/add-gat1t0
 
     <script src="../js/como-contribuir.js"></script>
     <script src="../js/script.js"></script>
+    <script>
+      // Funcionalidad para ampliar imágenes
+      function openImageModal(img) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeImageModal() {
+        const modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      // Cerrar modal al hacer click en la X
+      document.getElementById('modalClose').addEventListener('click', closeImageModal);
+
+      // Cerrar modal al hacer click fuera de la imagen
+      document.getElementById('imageModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeImageModal();
+        }
+      });
+
+      // Cerrar modal con la tecla ESC
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeImageModal();
+        }
+      });
+
+      // Agregar la clase clickable a todas las imágenes de guía
+      document.addEventListener('DOMContentLoaded', function() {
+        const guideImages = document.querySelectorAll('.guide-image:not(.clickable-image)');
+        guideImages.forEach(img => {
+          img.classList.add('clickable-image');
+          img.setAttribute('onclick', 'openImageModal(this)');
+          
+          // Agregar hint de zoom si no existe
+          if (!img.nextElementSibling || !img.nextElementSibling.classList.contains('image-zoom-hint')) {
+            const hint = document.createElement('div');
+            hint.className = 'image-zoom-hint';
+            hint.innerHTML = '<i class="fas fa-search-plus"></i> Click para ampliar';
+            img.parentElement.appendChild(hint);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
